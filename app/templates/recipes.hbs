@@ -1,0 +1,33 @@
+<h1>{{ model.name }}</h1>
+
+<h2>Vegetarian ingredients for this recipe, filtered by:</h2>
+
+{{#display-names array=filter1}}
+  Setting a property via an observer
+{{/display-names}}
+
+{{#display-names array=filter2.content}}
+  A simple promise
+{{/display-names}}
+
+{{#display-names array=filter3}}
+  With <code>PromiseArray</code>
+{{/display-names}}
+
+{{#display-names array=(await filter2)}}
+  With <code>ember-promise-helpers</code>
+{{/display-names}}
+
+<hr>
+
+<h2>Other information</h2>
+
+{{#display-names array=filter4}}
+  All ingredients with <code>ember-cli-filter-by-query</code>
+{{/display-names}}
+
+{{input value=input}}
+
+<p>
+  First tag for first ingredient: <em>{{ ingredients.firstObject.tags.firstObject.name }}</em>
+</p>
