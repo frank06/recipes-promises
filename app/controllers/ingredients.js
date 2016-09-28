@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 
     return ingredients.filter(ingredient => {
       return ingredient.get('recipe').then(recipe => {
-        return recipe.get('name') === "Jamaican Oxtail Stew";
+        return /stew/i.test(recipe.get('name'));
       });
     });
 
@@ -22,7 +22,7 @@ export default Ember.Controller.extend({
 
     const promise = RSVP.filter(ingredients.toArray(), ingredient => {
       return ingredient.get('recipe').then((recipe) => {
-        return recipe.get('name') === "Jamaican Oxtail Stew";
+        return /stew/i.test(recipe.get('name'));
       });
     });
 
