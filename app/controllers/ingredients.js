@@ -5,22 +5,15 @@ const { computed, RSVP } = Ember;
 export default Ember.Controller.extend({
 
   filter1: computed('model', function() {
-
-    const ingredients = this.get('model');
-
-    return ingredients.filter(ingredient => {
+    return this.get('model').filter(ingredient => {
       return ingredient.get('recipe').then(recipe => {
         return /stew/i.test(recipe.get('name'));
       });
     });
-
   }),
 
   filter2: computed('model', function() {
-
-    const ingredients = this.get('model');
-
-    const promise = RSVP.filter(ingredients.toArray(), ingredient => {
+    const promise = RSVP.filter(this.get('model').toArray(), ingredient => {
       return ingredient.get('recipe').then((recipe) => {
         return /stew/i.test(recipe.get('name'));
       });
@@ -29,7 +22,6 @@ export default Ember.Controller.extend({
     return DS.PromiseArray.create({
       promise: promise
     });
-
   })
 
 });
