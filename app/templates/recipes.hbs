@@ -18,11 +18,17 @@
   With <code>ember-promise-helpers</code>
 {{/display-names}}
 
+{{#display-names array=(await filter4)}}
+  With <code>ember-concurrency</code> {{if (is-pending filter4) '(loading...)'}}
+{{/display-names}}
+
+<button {{action 'reload'}}>Perform task again (keepLatest behavior)</button>
+
 <hr>
 
 <h2>Other information</h2>
 
-{{#display-names array=filter4}}
+{{#display-names array=filter5}}
   All ingredients with <code>ember-cli-filter-by-query</code>
 {{/display-names}}
 
