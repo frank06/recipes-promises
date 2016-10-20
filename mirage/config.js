@@ -2,7 +2,7 @@ import Mirage from 'ember-cli-mirage';
 
 export default function() {
 
-  this.timing = 1200;
+  this.timing = 2200;
 
   this.get('/recipes');
   this.get('/recipes/:id');
@@ -12,8 +12,5 @@ export default function() {
 
   this.get('/tags');
   this.get('/tags/:id');
-  // this.get('/tags/:id', function() {
-  //   return new Mirage.Response(500, {}, { message: 'Errrrror' });
-  // });
 
 }
