@@ -29,10 +29,10 @@ export default Ember.Controller.extend({
   }),
 
   filter4: computed('ingredients.@each.vegetarian', function() {
-    return this.task1.perform();
+    return this.filterTask.perform();
   }),
 
-  task1: task(function * (reload = false) {
+  filterTask: task(function * () {
     const ingredients = yield this.get('ingredients').reload();
     return ingredients.filterBy('vegetarian');
   }).keepLatest(),
